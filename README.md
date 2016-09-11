@@ -1,6 +1,7 @@
 # Learn Korean
-Learn Korean today with this free web app.
+Learn Korean today with this free flashcard web app.
 
 ## Built with
 * React
-* Ruby on Rails
+* Ruby 2.3.1
+* Rails 5.0.0.1
