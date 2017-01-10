@@ -10,17 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170110152748) do
-
-  create_table "card_decks", force: :cascade do |t|
-    t.integer  "card_id"
-    t.integer  "deck_id"
-    t.string   "category"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["card_id"], name: "index_card_decks_on_card_id"
-    t.index ["deck_id"], name: "index_card_decks_on_deck_id"
-  end
+ActiveRecord::Schema.define(version: 20170110161430) do
 
   create_table "cards", force: :cascade do |t|
     t.datetime "created_at", null: false
@@ -33,6 +23,16 @@ ActiveRecord::Schema.define(version: 20170110152748) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string   "name"
+  end
+
+  create_table "relationships", force: :cascade do |t|
+    t.integer  "deck_id"
+    t.integer  "card_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["card_id"], name: "index_relationships_on_card_id"
+    t.index ["deck_id", "card_id"], name: "index_relationships_on_deck_id_and_card_id", unique: true
+    t.index ["deck_id"], name: "index_relationships_on_deck_id"
   end
 
 end
