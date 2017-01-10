@@ -1,0 +1,9 @@
+<h1>Learn Korean</h1>
+
+<ul>
+  <% @decks.each do |deck| %>
+    <li>
+      <%= link_to deck.name, deck %>
+    </li>
+  <% end %>
+</ul>

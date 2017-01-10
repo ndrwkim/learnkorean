@@ -1,3 +1,4 @@
 class Card < ApplicationRecord
-  belongs_to :deck
+  has_many :carddecks
+  has_many :decks, through :carddecks
 end
