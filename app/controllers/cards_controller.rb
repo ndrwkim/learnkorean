@@ -17,6 +17,6 @@ class CardsController < ApplicationController
   private
 
     def card_params
-      params.require(:card).permit(:name)
+      params.require(:card).permit(:english, :korean)
     end
 end
