@@ -1,4 +1,4 @@
 class Card < ApplicationRecord
   has_many :carddecks
-  has_many :decks, through: :card_decks
+  has_many :decks, through: :carddecks
 end
