@@ -1,7 +1,10 @@
-<ul>
-  <% @decks.each do |deck| %>
-    <li>
-      <%= link_to deck.name, deck %>
-    </li>
-  <% end %>
-</ul>
+<main>
+  <div class="container-fluid">
+    <h1>Categories</h1>
+    <% @alldecks.each do |deck| %>
+      <div class="item">
+        <%= link_to deck.name, deck %>
+      </div>
+    <% end %>
+  </div>
+</main>
