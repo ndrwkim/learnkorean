@@ -2,9 +2,9 @@
   <div class="container-fluid">
     <h1>Categories</h1>
     <% @alldecks.each do |deck| %>
-      <div class="item">
-        <%= link_to deck.name, deck %>
-      </div>
+      <!-- <div class="item"> -->
+        <%= link_to deck.name, deck, :class => "item" %>
+      <!-- </div> -->
     <% end %>
   </div>
 </main>

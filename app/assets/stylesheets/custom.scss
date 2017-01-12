@@ -103,20 +103,20 @@ main h1 {
   font: 400 2.5em 'Montserrat', sans-serif;
 }
 
-.item {
+a.item {
   float:left;
   display: block;
-  margin-right: 50px;
+  margin-left: 2.5%;
+  margin-right: 2.5%;
+  margin-bottom: 50px;
   width: 20%;
-  padding-top: 50px;
-  padding-bottom: 50px;
+  padding-top: 100px;
+  padding-bottom: 100px;
   text-align: center;
   background-color: black;
-  a {
-    font-size: 1.5em;
-    color: white;
-    text-decoration: none;
-  }
+  color: white;
+  text-decoration: none;
+  font-size: 1.5em;
 }
 
 /* footer */
@@ -131,6 +131,10 @@ footer {
       // color: $gray-darker;
     }
   }
+}
+
+.copyright {
+  text-align: center;
 }
 
 /* miscellaneous */
