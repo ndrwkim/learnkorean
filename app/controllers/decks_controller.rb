@@ -13,6 +13,17 @@ class DecksController < ApplicationController
     @deck.save
   end
 
+  def update
+    @deck = Deck.find(params[:id])
+    @deck.update_attributes(deck_params)
+    @deck.save
+  end
+
+  def destroy
+    @deck = Deck.find(params[:id])
+    @deck.destroy
+  end
+
   def show
     @deck = Deck.find(params[:id])
     @cards = @deck.cards

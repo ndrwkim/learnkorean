@@ -1,9 +1,5 @@
 class CardsController < ApplicationController
 
-  def index
-    @allcards = Card.all
-  end
-
   def new
     @card = Card.new
   end
@@ -13,9 +9,19 @@ class CardsController < ApplicationController
     @card.save
   end
 
+  def update
+    @card = Card.find(params[:id])
+    @card.update_attributes(card_params)
+    @card.save
+  end
+
+  def destroy
+    @card = Card.find(params[:id])
+    @card.destroy
+  end
+
   def show
     @card = Card.find(params[:id])
-    @decks = @card.decks
   end
 
   private
