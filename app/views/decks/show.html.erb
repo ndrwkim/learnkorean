@@ -1,9 +1,7 @@
-<%= link_to "Decks", decks_path %>
-
-<h1><%= @deck.name %></h1>
+<%= link_to "Decks", root_path(anchor: "categories") %>
 
 <ul>
   <% @cards.each do |card| %>
-    <li><%= link_to card.front, [card.deck, card] %></li>
+    <li><%= link_to card.english %></li>
   <% end %>
 </ul>

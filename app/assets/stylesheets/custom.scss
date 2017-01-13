@@ -15,7 +15,7 @@ $gray-medium-light: #eaeaea;
 /* universal */
 
 body {
-  padding-top: 80px;
+  padding-top: 30px;
 }
 
 section {
@@ -82,10 +82,6 @@ a {
 
 /* header */
 
-header {
-  padding-bottom: 200px;
-}
-
 .navbar-default {
   background: none;
   border: none;
@@ -95,12 +91,24 @@ header {
   display: block;
   font: 400 4em 'Montserrat', sans-serif;
   padding: 10px 0;
+  text-decoration: none;
+  line-height: 1;
+  letter-spacing: -2px;
+  margin-bottom: 50px;
+  &:hover {
+    color: black;
+  }
 }
 
 /* main */
 
 main h1 {
   font: 400 2.5em 'Montserrat', sans-serif;
+}
+
+#intro {
+  padding-bottom: 200px;
+  font-size: 1.2em;
 }
 
 a.item {

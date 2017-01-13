@@ -25,7 +25,7 @@ class DecksController < ApplicationController
   end
 
   def show
-    @deck = Deck.find(params[:id])
+    @deck = Deck.friendly.find(params[:id])
     @cards = @deck.cards
   end
 
