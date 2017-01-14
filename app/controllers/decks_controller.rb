@@ -27,6 +27,8 @@ class DecksController < ApplicationController
   def show
     @deck = Deck.friendly.find(params[:id])
     @cards = @deck.cards
+    r = rand(0...@cards.count)
+    @randcard = @cards[r]
   end
 
   private

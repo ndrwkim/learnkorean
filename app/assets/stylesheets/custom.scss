@@ -4,17 +4,31 @@
 
 /* mixins, variables, etc. */
 
-$gray-medium-light: #eaeaea;
-
 @mixin box_sizing {
   -moz-box-sizing:    border-box;
   -webkit-box-sizing: border-box;
   box-sizing:         border-box;
 }
 
+$gray: #3a3a3a;
+$transition-duration: 0.8s;
+$transition-easing: cubic-bezier(0.230, 1.000, 0.320, 1.000);
+$bounce-easing: cubic-bezier(0.175, 0.885, 0.320, 1.275);
+$closed-width: 600px;
+$closed-height: 300px;
+$opened-width: 600px;
+$opened-height: 300px;
+
 /* universal */
 
+html {
+  height: 100%;
+}
+
 body {
+  min-height: 100%;
+  display: flex;
+  flex-direction: column;
   padding-top: 30px;
 }
 
@@ -43,6 +57,7 @@ textarea {
 
 body {
   font: 400 16px 'Raleway', sans-serif;
+  color: $gray
 }
 
 h1, h2, h3, h4, h5, h6 {
@@ -69,10 +84,10 @@ p {
 }
 
 a {
-  color: black;
+  color: $gray;
   text-decoration: underline;
   &:visited {
-    color: black;
+    color: $gray;
   }
   &:hover {
     color: pink;
@@ -96,11 +111,15 @@ a {
   letter-spacing: -2px;
   margin-bottom: 50px;
   &:hover {
-    color: black;
+    color: $gray;
   }
 }
 
 /* main */
+
+main {
+  flex: 1;
+}
 
 main h1 {
   font: 400 2.5em 'Montserrat', sans-serif;
@@ -121,10 +140,102 @@ a.item {
   padding-top: 100px;
   padding-bottom: 100px;
   text-align: center;
-  background-color: black;
+  background-color: $gray;
   color: white;
   text-decoration: none;
   font-size: 1.5em;
+}
+
+/* flashcard */
+
+.flashcard {
+  position: relative;
+  display: block;
+  margin: 0 auto;
+  width: $closed-width;
+  height: $closed-height;
+  font-size: 2em;
+  transition: width $transition-duration $transition-easing,
+              height $transition-duration $transition-easing,
+              transform $transition-duration $bounce-easing;
+  transform-style: preserve-3d;
+  transform-origin: 50% 50%;
+  text-align: center;
+}
+
+.flashcard-front {
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+  color: white;
+  background-color: $gray;
+  cursor: pointer;
+  backface-visibility: hidden;
+  box-shadow: 0 8px 25px rgba(0,0,0,0.4);
+  -webkit-tap-highlight-color: rgba( 0, 0, 0, 0 );
+  transition: background 0.15s ease;
+}
+
+.flashcard-back {
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+  background-color: #eee;
+  color: #222;
+  cursor: pointer;
+  transform: translateZ(-2px) rotateX(180deg);
+  overflow: hidden;
+  -webkit-appearance: none;
+  -webkit-tap-highlight-color: rgba( 0, 0, 0, 0 );
+  transition: background 0.15s ease;
+
+  p {
+    margin-top: 27px;
+    margin-bottom: 25px;
+  }
+}
+
+.flashcard[data-direction="left"] .flashcard-back,
+.flashcard[data-direction="right"] .flashcard-back {
+  transform: translateZ(-2px) rotateY(180deg);
+}
+
+.flashcard.is-open {
+  width: $opened-width;
+  height: $opened-height;
+
+  .flashcard-front {
+    pointer-events: none;
+    line-height: $opened-height;
+  }
+
+  .flashcard-back {
+    box-shadow: 0 8px 25px rgba(0,0,0,0.4);
+  }
+}
+
+.flashcard[data-direction="top"].is-open {
+  transform: rotateX(180deg);
+}
+
+.flashcard[data-direction="right"].is-open {
+  transform: rotateY(180deg);
+}
+
+.flashcard[data-direction="bottom"].is-open {
+  transform: rotateX(-180deg);
+}
+
+.flashcard[data-direction="left"].is-open {
+  transform: rotateY(-180deg);
 }
 
 /* footer */

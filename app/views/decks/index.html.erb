@@ -10,7 +10,7 @@
       <a href="https://www.youtube.com/results?search_query=learn+korean+alphabet" target="_blank" rel="nofollow">YouTube videos</a>.
     </p>
     <p>
-      If you're like me and already know the alphabet, then you can use this site to improve your vocabulary and memorize common phrases.
+      If you're like me and already know the alphabet, then you can get started right away on improving your vocabulary and memorizing common phrases.
     </p>
     <p>
       Scroll down, choose a deck of flashcards, and get learning!
@@ -19,7 +19,7 @@
 
   <div id="categories" class="container-fluid">
     <h1>Decks</h1>
-    <% @alldecks.each do |deck| %>
+    <% @alldecks.order('name').each do |deck| %>
         <%= link_to deck.name, deck, :class => "item" %>
     <% end %>
   </div>

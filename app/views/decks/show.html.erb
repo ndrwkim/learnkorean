@@ -1,7 +1,14 @@
-<%= link_to "Decks", root_path(anchor: "categories") %>
+<main>
+  <div class="container">
+    <%= link_to "Back to Decks", root_path(anchor: "categories") %>
 
-<ul>
-  <% @cards.each do |card| %>
-    <li><%= link_to card.english %></li>
-  <% end %>
-</ul>
+    <div class="flashcard">
+      <div class="flashcard-back">
+        <p><%= @randcard.korean %></p>
+      </div>
+      <div class="flashcard-front">
+        <p><%= @randcard.english %></p>
+      </div>
+    </div>
+  </div>
+</main>
