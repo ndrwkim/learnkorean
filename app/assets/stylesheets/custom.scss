@@ -11,6 +11,7 @@
 }
 
 $gray: #3a3a3a;
+$gray-light: lighten( $gray, 40% );
 $transition-duration: 0.8s;
 $transition-easing: cubic-bezier(0.230, 1.000, 0.320, 1.000);
 $bounce-easing: cubic-bezier(0.175, 0.885, 0.320, 1.275);
@@ -90,7 +91,7 @@ a {
     color: $gray;
   }
   &:hover {
-    color: pink;
+    color: $gray-light;
   }
 }
 
@@ -267,13 +268,6 @@ a.item {
 footer {
   margin-top: 45px;
   padding-top: 5px;
-  // color: $gray-light;
-  a {
-    // color: $gray;
-    &:hover {
-      // color: $gray-darker;
-    }
-  }
 }
 
 .copyright {
