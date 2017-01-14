@@ -1,4 +1,4 @@
-window.onload = function() {
+document.addEventListener("turbolinks:load", function() {
 
   var flashcard = document.querySelector( '.flashcard' );
 
@@ -37,4 +37,4 @@ window.onload = function() {
     return Math.sqrt( dx*dx + dy*dy );
   }
 
-};
+});
