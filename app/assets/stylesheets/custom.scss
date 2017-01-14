@@ -147,6 +147,29 @@ a.item {
   font-size: 1.5em;
 }
 
+.btn-default:active:focus {
+  color: white;
+  background-color: $gray;
+  outline: 0;
+}
+
+.btn-next {
+  display: block;
+  margin: 50px auto 0 auto;
+  font-size: 1.2em;
+  color: white;
+  background-color: $gray;
+
+  &:hover, &:focus, &:active {
+    color: white;
+    background-color: $gray;
+  }
+
+  &:focus {
+    outline: 0;
+  }
+}
+
 /* flashcard */
 
 .flashcard {

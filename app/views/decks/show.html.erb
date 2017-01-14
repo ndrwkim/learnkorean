@@ -10,5 +10,6 @@
         <p><%= @randcard.english %></p>
       </div>
     </div>
+    <%= button_to "Next Card", deck_path, class: "btn btn-default btn-next", :method => :get %>
   </div>
 </main>
