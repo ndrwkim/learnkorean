@@ -15,10 +15,6 @@ $gray-light: lighten( $gray, 40% );
 $transition-duration: 0.8s;
 $transition-easing: cubic-bezier(0.230, 1.000, 0.320, 1.000);
 $bounce-easing: cubic-bezier(0.175, 0.885, 0.320, 1.275);
-$closed-width: 600px;
-$closed-height: 300px;
-$opened-width: 600px;
-$opened-height: 300px;
 
 /* universal */
 
@@ -32,6 +28,7 @@ body {
   flex-direction: column;
   padding-top: 30px;
   perspective: 1300px;
+  font-size: 1em;
 }
 
 section {
@@ -40,11 +37,6 @@ section {
 
 .container {
   max-width: 680px;
-}
-
-.container-fluid {
-  padding-left: 50px;
-  padding-right: 50px;
 }
 
 textarea {
@@ -106,7 +98,7 @@ a {
 
 #logo {
   display: block;
-  font: 400 4em 'Montserrat', sans-serif;
+  font: 400 2.9em 'Montserrat', sans-serif;
   padding: 10px 0;
   text-decoration: none;
   line-height: 1;
@@ -117,7 +109,7 @@ a {
   }
 }
 
-/* main */
+/* decks#index */
 
 main {
   flex: 1;
@@ -136,10 +128,10 @@ main h1 {
 a.item {
   float:left;
   display: block;
-  margin-left: 2.5%;
-  margin-right: 2.5%;
+  margin-left: 5%;
+  margin-right: 5%;
   margin-bottom: 50px;
-  width: 20%;
+  width: 90%;
   padding-top: 100px;
   padding-bottom: 100px;
   text-align: center;
@@ -149,38 +141,14 @@ a.item {
   font-size: 1.5em;
 }
 
-.btn-default:active:focus {
-  color: white;
-  background-color: $gray;
-  outline: 0;
-}
-
-.btn-next {
-  display: block;
-  margin: 50px auto 0 auto;
-  font-size: 1.2em;
-  color: white;
-  background-color: $gray;
-
-  &:hover, &:focus, &:active {
-    color: white;
-    background-color: $gray;
-  }
-
-  &:focus {
-    outline: 0;
-  }
-}
-
-/* flashcard */
+/* decks#show */
 
 .flashcard {
   position: relative;
   display: block;
   margin: 50px auto 0 auto;
-  width: $closed-width;
-  height: $closed-height;
-  font-size: 2em;
+  width: 290px;
+  height: 200px;
   transition: width $transition-duration $transition-easing,
               height $transition-duration $transition-easing,
               transform $transition-duration $bounce-easing;
@@ -188,6 +156,8 @@ a.item {
   transform-origin: 50% 50%;
   text-align: center;
   p {
+    font-size: 1.7em;
+    line-height: 1.7em;
     margin: 30px;
   }
 }
@@ -233,12 +203,9 @@ a.item {
 }
 
 .flashcard.is-open {
-  width: $opened-width;
-  height: $opened-height;
-
   .flashcard-front {
     pointer-events: none;
-    line-height: $opened-height;
+    // line-height: $opened-height;
   }
 
   .flashcard-back {
@@ -262,6 +229,29 @@ a.item {
   transform: rotateY(-180deg);
 }
 
+.btn-default:active:focus {
+  color: white;
+  background-color: $gray;
+  outline: 0;
+}
+
+.btn-next {
+  display: block;
+  margin: 50px auto 0 auto;
+  font-size: 1.2em;
+  color: white;
+  background-color: $gray;
+
+  &:hover, &:focus, &:active {
+    color: white;
+    background-color: $gray;
+  }
+
+  &:focus {
+    outline: 0;
+  }
+}
+
 /* footer */
 
 footer {
@@ -281,4 +271,55 @@ footer {
   width: 100%;
   margin-top: 45px;
   @include box_sizing;
+}
+
+/* Media Queries */
+@media (min-width: 375px) {
+  .flashcard {
+    width: 345px;
+    height: 230px;
+  }
+}
+
+@media (min-width: 480px) {
+  .flashcard {
+    width: 450px;
+    height: 300px;
+    p {
+      font-size: 2em;
+    }
+  }
+}
+
+@media (min-width: 600px) {
+  #logo {
+    font-size: 4em;
+  }
+
+  a.item {
+    width: 45%;
+    margin-left: 2.5%;
+    margin-right: 2.5%;
+  }
+
+  .flashcard {
+    width: 500px;
+    height: 300px;
+  }
+}
+
+@media (min-width: 960px) {
+  .container-fluid {
+    padding-left: 50px;
+    padding-right: 50px;
+  }
+
+  a.item {
+    width: 20%;
+  }
+
+  .flashcard {
+    width: 600px;
+    height: 300px;
+  }
 }
