@@ -11,9 +11,9 @@ gem 'jquery-rails'
 gem 'turbolinks',              '~> 5'
 gem 'jbuilder',                '~> 2.5'
 gem 'friendly_id',             '~> 5.1.0'
+gem 'pg',                         '0.18.4'
 
 group :development, :test do
-  gem 'sqlite3',                  '1.3.11'
   gem 'byebug',                   '9.0.0', platform: :mri
 end
 
@@ -29,10 +29,6 @@ group :test do
   gem 'minitest-reporters',       '1.1.9'
   gem 'guard',                    '2.13.0'
   gem 'guard-minitest',           '2.4.4'
-end
-
-group :production do
-  gem 'pg',                       '0.18.4'
 end
 
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
